@@ -1,6 +1,6 @@
-import '../styles/style.css';
-import '../styles/output.css';
 import type { AppProps } from 'next/app';
+import '../styles/global.css';
+import '../styles/output.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (

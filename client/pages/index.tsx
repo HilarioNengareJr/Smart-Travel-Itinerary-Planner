@@ -10,7 +10,6 @@ const Index = () => {
             </Head>
             <Layout>
             <main>
-                Hello World
             </main>
             </Layout>
         </>
