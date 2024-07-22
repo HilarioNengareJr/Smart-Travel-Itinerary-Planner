@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
-        <header className='border-b-1 border-black'>
-            <div className='flex flex-row flex-nowrap justify-center items-center py-5'>
-                <span className='materials-symbol-outlined px-1'>
-                    location_on
+        <header className='border-b border-gray-300 h-24 flex items-center justify-center'>
+            <div className='flex items-center text-sm font-thin'>
+                <span className='material-symbols-outlined'>
+                    explore
                 </span>
-                <span className='px-1'>
-                    Powered by AI.
+                <span>
+                    Powered by AI
                 </span>
             </div>
         </header>
