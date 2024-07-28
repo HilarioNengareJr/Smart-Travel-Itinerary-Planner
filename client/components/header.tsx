@@ -5,7 +5,7 @@ const Header: React.FC = () => {
         <header className='border-b border-gray-300 h-24 flex items-center justify-center'>
             <div className='flex items-center text-sm font-thin'>
                 <span className='material-symbols-outlined'>
-                    explore
+                    location_on
                 </span>
                 <span>
                     Powered by AI
