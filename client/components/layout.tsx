@@ -12,10 +12,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <>
             <Header />
             <ProgressBar />
-            {/* main content area */}
-            <div className="content">
+            <main className="content">
                 { children }
-            </div>
+            </main>
         </>
     );
 }
