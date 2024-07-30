@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+
+    /** 
+    * typography
+    */
+
+    --ff-inter: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ff-inter);
+}
