@@ -21,8 +21,8 @@ const ProgressBar: React.FC = () => {
     }, [router]);
 
     return (
-        <div className='fixed border-b border-gray-300 w-full h-3'>
-            <div className='bg-black h-3' style={{ width: `${progress}%`}}>
+        <div className='border-t border-gray-300 w-full h-3'>
+            <div className='bg-gray-300 h-3' style={{ width: `${progress}%`}}>
                
             </div>
         </div>

@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import Header from './header';
-import ProgressBar from "./progressBar";
 import '../styles/layout.module.css';
 
 interface LayoutProps {
@@ -10,9 +9,10 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <>
+            <header className="fixed top-0 left-0 right-0 z-10">
             <Header />
-            <ProgressBar />
-            <main className="container">
+            </header>
+            <main className="container mx-auto">
                 { children }
             </main>
         </>
