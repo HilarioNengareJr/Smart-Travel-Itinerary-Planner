@@ -1,29 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
-const ProgressBar: React.FC = () => {
-    const [progress, setProgress] = useState<number>(30);
-    const router = useRouter();
+interface progressBarProps {
+    sharedProgress: number
+};
 
-    useEffect(() => {
-        const handleStart = () => setProgress(30);
-        const handleComplete = () => setProgress(100);
+const ProgressBar: React.FC<progressBarProps> = ({ sharedProgress }) => {
 
-        router.events.on('routeChangeStart', handleStart);
-        router.events.on('routeChangeComplete', handleComplete);
-        router.events.on('routeChangeError', handleComplete);
-
-        return () => {
-            router.events.off('routeChangeStart', handleStart);
-            router.events.off('routeChangeComplete', handleComplete);
-            router.events.off('routeChangeError', handleComplete);
-        };
-    }, [router]);
 
     return (
         <div className='border-t border-gray-300 w-full h-3'>
-            <div className='bg-gray-300 h-3' style={{ width: `${progress}%`}}>
-               
+            <div className='bg-gray-300 h-3' style={{ width: `${sharedProgress}%` }}>
             </div>
         </div>
     );

@@ -10,6 +10,9 @@ const Hero: React.FC = () => {
     }
 
     const cities: City[] = [
+        { imagePath: '/cities/side.jpg',
+            city: 'Side'
+        },
         {
             imagePath: '/cities/varadero.jpg',
             city: 'Varadero'
@@ -33,7 +36,7 @@ const Hero: React.FC = () => {
     ]
 
     return (
-        <div className='p-20'>
+        <div className='p-24'>
 
             <h1 className='font-bold text-xl pb-8'>
                 Popular Destinations
@@ -44,7 +47,7 @@ const Hero: React.FC = () => {
 
                     return (
                     <li className='pr-4 relative' key={index}>
-                        <Image src={item.imagePath} className='object-cover object-center rounded-lg' width={200} height={200} alt={`{item.city}'s image`} />
+                        <Image src={item.imagePath} className='object-cover object-center rounded-lg' width={200} height={200} alt='city image' />
                         <span className='absolute bottom-5 p-3 font-bold text-white'>
                             {item.city}
                         </span>
