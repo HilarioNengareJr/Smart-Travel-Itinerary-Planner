@@ -32,9 +32,9 @@ const Header: React.FC<HeaderProps> = ({sharedProgress}) => {
                 <span className='material-symbols-outlined '>
                     location_on
                 </span>
-                <span className='text-xs font-thin'>
+                <small className='text-xs font-thin'>
                     Powered by AI
-                </span>
+                </small>
             </div>
             <div className='absolute bottom-0 left-0 right-0'>
                 <ProgressBar sharedProgress={sharedProgress} />
