@@ -1,11 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
-import calendarSlice from "./calendar/calendarSlice"
+import { configureStore } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
+import calendarReducer from './calendar/calendarSlice';
 
-const store = configureStore({
+export const store = () =>
+  configureStore({
     reducer: {
-        calendar: calendarSlice,
-    }
-})
+      calendar: calendarReducer,
+    },
+  });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<ReturnType<typeof store>['getState']>;
+export type AppDispatch = ReturnType<typeof store>['dispatch'];
+
+export const wrapper = createWrapper(store);
