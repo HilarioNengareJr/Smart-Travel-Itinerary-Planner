@@ -7,7 +7,7 @@ import { wrapper } from '@/state/store';
 
 
 const App = ({ Component, pageProps }: AppProps) => (
-    <Provider store={store}>
+    <Provider store={store()}>
         <Component {...pageProps} />
     </Provider>
 );
