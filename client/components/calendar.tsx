@@ -10,6 +10,18 @@ const CalendarComponent: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { startDate, endDate, activeTab, tripLength } = useSelector((state: RootState) => state.calendar);
 
+  // Function to generate an array of months starting from the current month
+  const generateMonths = () => {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June', 
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const currentMonthIndex = new Date().getMonth();
+    return months.slice(currentMonthIndex).concat(months.slice(0, currentMonthIndex));
+  };
+
+  const months = generateMonths();
+
   return (
     <div className='pt-40 px-44 grid grid-rows-2 gap-4 relative'>
       {/* Heading Section */}
@@ -36,17 +48,7 @@ const CalendarComponent: React.FC = () => {
 
       <div className='w-full mt-8 flex justify-center'>
         {activeTab === 'Dates' ? (
-          <div className='w-full '>
-            <div className='border round-full'>
-              <span className='material-symbols-outlined '>
-                    edit_calendar
-                </span>
-                Start 
-                <span className='material-symbols-outlined '>
-                    arrow_forward
-                </span>
-                End
-                </div>
+          <div className='w-full'>
             <div className='w-full flex justify-center'>
               
               <DatePicker
@@ -67,7 +69,7 @@ const CalendarComponent: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className='w-full flex flex-col items-center'>
+          <div className='w-full flex flex-col items-center justify-center'>
             {/* Trip Length Selector */}
             <div className='w-full flex items-center justify-center space-x-2'>
               <span>Total days</span>
@@ -86,9 +88,9 @@ const CalendarComponent: React.FC = () => {
               </button>
             </div>
 
-            <div className='mt-8 w-3/4 flex space-x-2 justify-center'>
+            <div className='mt-8 w-3/4 flex space-x-2 justify-center overflow-hidden'>
               {/* Month Selector */}
-              {['August', 'September', 'October', 'November', 'December', 'January', 'February'].map((month) => (
+              {months.map((month) => (
                 <button key={month} className='bg-gray-200 rounded-full px-4 py-2'>
                   {month}
                 </button>
