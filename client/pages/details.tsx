@@ -1,20 +1,19 @@
 import React from 'react';
 import Layout from '@/components/layout';
 import Head from 'next/head';
-import Calendar from '@/components/calendar';
+import TripDetails from '@/components/tripDetails';
 
-
-const Dates: React.FC = () => {
+const Details: React.FC = () => {
     return (
         <>
             <Head>
-                <title>Smart Travel-Calendar</title>
+                <title>Smart Travel-Details</title>
             </Head>
             <Layout>
-                <Calendar />
+                <TripDetails />
             </Layout>
         </>
     );
 }
 
-export default Dates;
+export default Details;
