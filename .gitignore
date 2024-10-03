@@ -39,3 +39,6 @@ next-env.d.ts
 # generated
 package-lock.json
 postcss.config.mjs
+node_modules/
+.env
+config/firebaseConfig.js
