@@ -41,4 +41,4 @@ package-lock.json
 postcss.config.mjs
 node_modules/
 .env
-config/firebaseConfig.js
+src/config/firebaseConfig.js
