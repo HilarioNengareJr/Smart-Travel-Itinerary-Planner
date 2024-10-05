@@ -5,9 +5,10 @@ interface ButtonProps {
     sharedProgress: number,
     nextRoute: string, 
     backRoute?: string, // optional back route
+    inputValue: string;
 };
 
-const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute }) => {
+const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute, inputValue }) => {
 
     const router = useRouter();
 
@@ -38,7 +39,11 @@ const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute })
                         Back
                     </button>
             }
-            <button className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' onClick={handleNextButton}>
+            <button 
+                className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' 
+                onClick={handleNextButton}
+                disabled={!inputValue}
+            >
                 Next
             </button>
         </div>
