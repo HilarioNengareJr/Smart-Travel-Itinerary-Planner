@@ -12,12 +12,18 @@ const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute })
     const router = useRouter();
 
     const handleNextButton = () => {
-        router.push(nextRoute);
+        if (nextRoute) {
+            router.push(nextRoute);
+        } else {
+            console.error("nextRoute is undefined or invalid");
+        }
     }
 
     const handleBackButton = () => {
-        if(backRoute){
+        if (backRoute) {
             router.push(backRoute);
+        } else {
+            console.error("backRoute is undefined or invalid");
         }
     }
 
