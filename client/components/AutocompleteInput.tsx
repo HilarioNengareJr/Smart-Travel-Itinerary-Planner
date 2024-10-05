@@ -17,12 +17,7 @@ const AutocompleteInput: React.FC = () => {
             <input
                 type="text"
                 placeholder="Enter a place"
-                style={{
-                    width: '100%',
-                    padding: '12px 20px',
-                    margin: '8px 0',
-                    boxSizing: 'border-box',
-                }}
+                className="w-full p-4 text-lg"
             />
         </Autocomplete>
     );
