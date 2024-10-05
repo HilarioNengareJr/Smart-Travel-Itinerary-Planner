@@ -37,7 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {children}
             </main>
             <footer className="fixed bottom-0 left-0 right-0 z-10">
-                <Button sharedProgress={progress} />
+                <Button sharedProgress={progress} nextRoute="/next" backRoute="/back" />
             </footer>
         </>
     );
