@@ -39,17 +39,26 @@ const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute, i
                         Back
                     </button>
             }
-            {inputValue ? (
-                <button 
-                    className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' 
-                    onClick={handleNextButton}
-                >
-                    Next
-                </button>
+            {router.pathname === '/' ? (
+                inputValue ? (
+                    <button 
+                        className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' 
+                        onClick={handleNextButton}
+                    >
+                        Next
+                    </button>
+                ) : (
+                    <button 
+                        className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' 
+                        style={{ display: 'none' }}
+                    >
+                        Next
+                    </button>
+                )
             ) : (
                 <button 
                     className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' 
-                    style={{ display: 'none' }}
+                    onClick={handleNextButton}
                 >
                     Next
                 </button>
