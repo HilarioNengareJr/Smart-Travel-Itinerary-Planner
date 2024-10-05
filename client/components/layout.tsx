@@ -28,6 +28,31 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }
     }, []);
 
+    const getNextRoute = (currentRoute: string) => {
+        switch (currentRoute) {
+            case '/':
+                return '/dates';
+            case '/dates':
+                return '/details';
+            default:
+                return null;
+        }
+    };
+
+    const getBackRoute = (currentRoute: string) => {
+        switch (currentRoute) {
+            case '/dates':
+                return '/';
+            case '/details':
+                return '/dates';
+            default:
+                return null;
+        }
+    };
+
+    const nextRoute = getNextRoute(router.pathname);
+    const backRoute = getBackRoute(router.pathname);
+
     return (
         <>
             <header className="fixed top-0 left-0 right-0 z-10">
@@ -37,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {children}
             </main>
             <footer className="fixed bottom-0 left-0 right-0 z-10">
-                <Button sharedProgress={progress} nextRoute="/next" backRoute="/back" />
+                <Button sharedProgress={progress} nextRoute={nextRoute} backRoute={backRoute} />
             </footer>
         </>
     );
