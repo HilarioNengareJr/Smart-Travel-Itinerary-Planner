@@ -78,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ children, inputValue }) => {
     return (
         <>
             <header className="fixed top-0 left-0 right-0 z-10">
-                <Header sharedProgress={progress} />
+                <Header sharedProgress={progress} className="transition-all duration-500 ease-in-out" />
             </header>
             <main className="container mx-auto">
                 {children}
