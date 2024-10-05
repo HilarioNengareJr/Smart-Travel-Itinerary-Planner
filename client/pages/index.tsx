@@ -17,7 +17,7 @@ const Index: React.FC = () => {
                 <title>Smart Travel</title>
             </Head>
             <Layout inputValue={inputValue}>
-                <InputComponent onInputChange={handleInputChange} />
+                <InputComponent value={inputValue} onChange={handleInputChange} />
                 <Hero />
             </Layout>
         </>
