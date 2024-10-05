@@ -26,7 +26,28 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             router.events.off('routeChangeComplete', handleComplete);
             router.events.off('routeChangeError', handleComplete);
         }
-    }, []);
+    }, [router.events]);
+
+    useEffect(() => {
+        const updateProgress = (newRoute: string) => {
+            switch (newRoute) {
+                case '/':
+                    setProgress(25);
+                    break;
+                case '/dates':
+                    setProgress(50);
+                    break;
+                case '/details':
+                    setProgress(75);
+                    break;
+                default:
+                    setProgress(100);
+                    break;
+            }
+        };
+
+        updateProgress(router.pathname);
+    }, [router.pathname]);
 
     const getNextRoute = (currentRoute: string) => {
         switch (currentRoute) {

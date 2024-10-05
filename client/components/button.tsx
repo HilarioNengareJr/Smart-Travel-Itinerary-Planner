@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({ sharedProgress, nextRoute, backRoute })
     return (
         <div className='bg-white h-24 flex items-center justify-items-center justify-between'>
             {
-                sharedProgress > 25 ?
+                backRoute ?
                     <button className='py-1 px-8 mx-8 bg-black text-white transition ease-in-out duration-300 rounded-md hover:bg-slate-300 hover:text-black focus:bg-slate-300 focus:text-black' onClick={handleBackButton}>
                         Back
                     </button> : 
