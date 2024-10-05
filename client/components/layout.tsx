@@ -6,9 +6,10 @@ import '../styles/layout.module.css';
 
 interface LayoutProps {
     children: ReactNode;
+    inputValue: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, inputValue }) => {
 
     const [progress, setProgress] = useState<number>(25);
     const router = useRouter();
@@ -83,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {children}
             </main>
             <footer className="fixed bottom-0 left-0 right-0 z-10">
-                <Button sharedProgress={progress} nextRoute={nextRoute} backRoute={backRoute} />
+                <Button sharedProgress={progress} nextRoute={nextRoute} backRoute={backRoute} inputValue={inputValue} />
             </footer>
         </>
     );
