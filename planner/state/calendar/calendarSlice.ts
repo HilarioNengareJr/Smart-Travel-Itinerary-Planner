@@ -9,6 +9,7 @@ interface CalendarState {
     endDate: Date | null;
     activeTab: 'Dates' | 'TripLength';
     recommendations: any[];
+    userSelections: any;
 }
 
 const initialState: CalendarState = {
@@ -17,6 +18,7 @@ const initialState: CalendarState = {
     endDate: null,
     activeTab: 'Dates',
     recommendations: [],
+    userSelections: {},
 }
 
 
@@ -54,10 +56,13 @@ const calendarSlice = createSlice({
         setRecommendations(state, action: PayloadAction<any[]>) {
             state.recommendations = action.payload;
         },
+        setUserSelections(state, action: PayloadAction<any>) {
+            state.userSelections = action.payload;
+        },
     },
 });
 
 
-export const { setStartDate, setEndDate, setActiveTab, setTripLength, setRecommendations } = calendarSlice.actions;
+export const { setStartDate, setEndDate, setActiveTab, setTripLength, setRecommendations, setUserSelections } = calendarSlice.actions;
 export default calendarSlice.reducer;
 

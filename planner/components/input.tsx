@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecommendations } from '../api/wikitravelApi';
+import { setUserSelections } from '../state/calendar/calendarSlice';
+import { RootState } from '../state/store';
 
 interface InputComponentProps {
     value: string;
@@ -7,14 +10,15 @@ interface InputComponentProps {
 }
 
 const InputComponent: React.FC<InputComponentProps> = ({ value, onChange }) => {
+    const dispatch = useDispatch();
+    const userSelections = useSelector((state: RootState) => state.calendar.userSelections);
     const [recommendations, setRecommendations] = useState<any[]>([]);
 
     const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
         onChange(query);
         if (query) {
-            const results = await fetchRecommendations(query);
-            setRecommendations(results);
+            dispatch(fetchRecommendations(query, userSelections));
         } else {
             setRecommendations([]);
         }
