@@ -38,6 +38,11 @@ const InputComponent: React.FC<InputComponentProps> = ({ value, onChange }) => {
                     className='p-4 w-full border border-gray-200 border-2 outline-blue-200 rounded-full pl-10 pr-10'
                     value={value}
                     onChange={handleInputChange}
+                    onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                            handleInputChange(e as unknown as React.ChangeEvent<HTMLInputElement>);
+                        }
+                    }}
                     required
                 />
                 <span className='material-symbols-outlined absolute inset-y-1/3 left-3 pr-flex items-center'>
