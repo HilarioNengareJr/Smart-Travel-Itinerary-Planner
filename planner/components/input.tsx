@@ -14,13 +14,19 @@ const InputComponent: React.FC<InputComponentProps> = ({ value, onChange }) => {
     const userSelections = useSelector((state: RootState) => state.calendar.userSelections);
     const [recommendations, setRecommendations] = useState<any[]>([]);
 
-    const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
         onChange(query);
-        if (query) {
-            dispatch(fetchRecommendations(query, userSelections));
-        } else {
-            setRecommendations([]);
+    };
+
+    const handleKeyPress = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            const query = e.currentTarget.value;
+            if (query) {
+                dispatch(fetchRecommendations(query, userSelections));
+            } else {
+                setRecommendations([]);
+            }
         }
     };
 
@@ -38,11 +44,7 @@ const InputComponent: React.FC<InputComponentProps> = ({ value, onChange }) => {
                     className='p-4 w-full border border-gray-200 border-2 outline-blue-200 rounded-full pl-10 pr-10'
                     value={value}
                     onChange={handleInputChange}
-                    onKeyPress={(e) => {
-                        if (e.key === 'Enter') {
-                            handleInputChange(e as unknown as React.ChangeEvent<HTMLInputElement>);
-                        }
-                    }}
+                    onKeyPress={handleKeyPress}
                     required
                 />
                 <span className='material-symbols-outlined absolute inset-y-1/3 left-3 pr-flex items-center'>
