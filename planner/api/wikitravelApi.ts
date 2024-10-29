@@ -7,7 +7,8 @@ import { setRecommendations } from '../state/calendar/calendarSlice';
 const WIKIVOYAGE_API_URL = 'https://wikivoyage.org/wiki/en/api.php';
 
 export const fetchRecommendations = (query: string, userSelections: any): ThunkAction<void, RootState, unknown, AnyAction> => async (dispatch) => {
-    const response = await axios.get(WIKIVOYAGE_API_URL, {
+    try {
+        const response = await axios.get(WIKIVOYAGE_API_URL, {
         params: {
             action: 'query',
             list: 'search',
@@ -20,6 +21,10 @@ export const fetchRecommendations = (query: string, userSelections: any): ThunkA
         relevance: calculateRelevance(rec, userSelections),
     }));
     dispatch(setRecommendations(recommendations));
+    } catch (error) {
+        console.error('Error fetching recommendations:', error);
+        dispatch(setRecommendations([])); // Clear recommendations on error
+    }
 };
 
 const calculateRelevance = (rec: any, userSelections: any) => {
