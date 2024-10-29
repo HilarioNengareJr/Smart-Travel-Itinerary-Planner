@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecommendations } from '../api/wikitravelApi';
+import { fetchDummyRecommendations } from '../api/wikitravelApi';
 import { setUserSelections } from '../state/calendar/calendarSlice';
 import { RootState } from '../state/store';
 
@@ -23,7 +23,7 @@ const InputComponent: React.FC<InputComponentProps> = ({ value, onChange }) => {
         if (e.key === 'Enter') {
             const query = e.currentTarget.value;
             if (query) {
-                dispatch(fetchRecommendations(query, userSelections));
+                dispatch(fetchDummyRecommendations(query));
             } else {
                 setRecommendations([]);
             }
