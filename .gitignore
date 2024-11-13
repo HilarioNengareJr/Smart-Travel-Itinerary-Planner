@@ -42,3 +42,4 @@ postcss.config.mjs
 node_modules/
 .env
 src/config/firebaseConfig.js
+.aider*
