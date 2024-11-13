@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    // Remove any Firebase-related configuration here
-};
+const nextConfig = {};
 
 export default nextConfig;
